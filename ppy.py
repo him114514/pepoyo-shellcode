@@ -41,7 +41,11 @@ class Ui_MainWindow:
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
     
     def load(self):
-        os.system(r'.\dount -f {0}'.format(fileInfo[0]))
+        if fileInfo == None:
+            tkinter.messagebox.showinfo('提示','傻逼,你还没选文件！')
+        else:
+            os.system(r'.\dount -f {0}'.format(fileInfo[0]))
+            tkinter.messagebox.showinfo('提示','文件已经生成！')
     def load2(self):
         global fileInfo
         fileInfo = QFileDialog.getOpenFileName(None,"别瞎选,选择exe等可执行文件", "C:/Users/Administrator/Desktop/")
